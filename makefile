@@ -3,12 +3,12 @@ FLAGS = -Wall -g
 OBJECTS_MAIN = main.c
 OBJECTS_LIB = my_mat.c
 
-all: libmymat.a connections
+all: connections
 
-connections: $(OBJECTS_MAIN) $(OBJECTS_LIB) my_mat.h
-	$(CC) $(FLAGS) $(OBJECTS_MAIN) $(OBJECTS_LIB) my_mat.h -o connections
+connections: main.c my_mat.c my_mat.h
+	$(CC) $(FLAGS) main.c my_mat.c my_mat.h -o connections
 
 .PHONY: clean all
 
 clean:
-	rm -f *.o *.a *.so connections
+	rm -f connections
